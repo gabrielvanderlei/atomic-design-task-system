@@ -6,7 +6,7 @@ import styles from './index.module.css'
 import { useState, useEffect } from "react";
 
 export const TaskItem = ({ index, name, task, onCheckTask }:{ index:number, name:string, task:Task, onCheckTask: (taskIndex:number, value:boolean) => void }) => {
-    const [checked, setChecked] = useState();
+    const [checked, setChecked] = useState<boolean>();
 
     useEffect(() => {
         setChecked(task.completed);
@@ -31,7 +31,7 @@ export const TaskItem = ({ index, name, task, onCheckTask }:{ index:number, name
     return (
         <div className={styles.item} onClick={() => { handleToggle() }}>
             <InputCheckbox name={name} value={checked} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleCheckChange(e)} />
-            <Label for={name}>{task.name}</Label>
+            <Label htmlFor={name}>{task.name}</Label>
             {task.completed && (<b> - Completed!</b>)}
         </div>
     )

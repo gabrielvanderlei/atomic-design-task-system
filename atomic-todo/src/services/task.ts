@@ -1,16 +1,17 @@
-import Task from '@/interfaces/task'
+import {Task} from '@/interfaces/task'
+import {SetStateAction, Dispatch} from 'react'
 
 export class TaskService{
 
-    update(newAllTasks){
+    update(newAllTasks:Task[]){
         this.updateLocalStorage(newAllTasks);
     }
 
-    load(setAllTasks){
+    load(setAllTasks:Dispatch<SetStateAction<Task[]>>){
         this.loadLocalStorage(setAllTasks);
     }
 
-    loadLocalStorage(setAllTasks) {
+    loadLocalStorage(setAllTasks:Dispatch<SetStateAction<Task[]>>) {
         const currentData = localStorage.getItem('allTasks');
 
         if(!currentData){
@@ -24,7 +25,7 @@ export class TaskService{
         }
     }
 
-    updateLocalStorage(newAllTasks) {
+    updateLocalStorage(newAllTasks:Task[]) {
         localStorage.setItem('allTasks', JSON.stringify(newAllTasks))
     }
 

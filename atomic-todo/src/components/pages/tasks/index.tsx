@@ -4,7 +4,7 @@ import { TaskService } from "@/services/task";
 import { useState, useEffect, useMemo } from "react";
 
 export const TaskPage = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [allTasks, setAllTasks] = useState<Task[]>([]);
     const taskService = useMemo(() => new TaskService(), []);
 

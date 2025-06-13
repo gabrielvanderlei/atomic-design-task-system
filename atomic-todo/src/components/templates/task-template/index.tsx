@@ -9,10 +9,11 @@ interface TaskTemplateProps{
     subtitle:string,
     description:string,
     tasks:Task[],
+    isLoading:boolean,
     onCreateTask: (taskText:string) => void,
     onRemoveTask: (taskIndex:number) => void,
     onCheckTask: (taskIndex:number, value:boolean) => void,
-    onUpdateTask: (taskIndex:number, name:string) => void
+    onUpdateTask: (taskIndex:number) => void
 }
 
 export const TaskTemplate = ({ title, subtitle, description, tasks, onCreateTask, onRemoveTask, onCheckTask, onUpdateTask, isLoading }:TaskTemplateProps) => {
